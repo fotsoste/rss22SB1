@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:feed lang="en-FR" xmlns:p="http://univrouen.fr/rss22" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://univrouen.fr/rss22 rss22.tp1.xsd "> 
+  <title>titre</title>
+  <pubDate>2001-01-01</pubDate>
+  <copyright>copyright</copyright>
+  <link href="http://tempuri.org" rel="" type=""/>
+  <item>
+    <guid>http://tempuri.org</guid>
+    <title>title</title>
+    <category term=""/>
+    <published>2001-01-01</published>
+    <image alt="" href="http://tempuri.org" length="0" type=""/>
+    <content href="http://tempuri.org" type=""/>
+    <author>
+      <name>name</name>
+      <email>email</email>
+      <uri>http://tempuri.org</uri>
+    </author>
+  </item>
+</p:feed>

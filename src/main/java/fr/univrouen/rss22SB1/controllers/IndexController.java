@@ -1,37 +1,34 @@
 package fr.univrouen.rss22SB1.controllers;
 
-import org.springframework.beans.factory.annotation.Value;
+
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+import fr.univrouen.rss22SB1.util.FeedUtil;
+
+
+@Controller
 public class IndexController {
-	
-	
-	
-	@GetMapping("/")
-	public ModelAndView index() {
-		ModelAndView mav = new ModelAndView(); 
+
+  @GetMapping(value = "/", produces = MediaType.TEXT_HTML_VALUE)
+  public ResponseEntity<String> getInfo()  {
+    FeedUtil feedUtil = new FeedUtil();
+
+    return ResponseEntity.ok(feedUtil.loadFileXML());
+  }
+  
+  @GetMapping("/help")
+	public String help(Model model) {
 		
-		mav.setViewName("index.html");
+		
+		
 		 
-		return mav;
+		return "help";
 		
 	}
-	
-	
-	 @Value("${mymessage}")
-    private String message;
-
-	 @GetMapping("/getMessage2")
-	 public ModelAndView getMessage() {
-
-	     var mav = new ModelAndView();
-	     mav.addObject("message", message);
-	     mav.setViewName("show");
-
-	     return mav;
-	 }
 
 }

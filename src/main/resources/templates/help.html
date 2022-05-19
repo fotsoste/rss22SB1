@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/w3css/3/w3.css">
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+	
+	<!-- Navigation -->
+	<nav class="w3-bar w3-black">
+	  <a href="/" class="w3-button w3-bar-item">Accueil</a>
+	  <a href="/help" class="w3-button w3-bar-item">Aide</a>
+	</nav>
+
+
+	<div class="text-center">
+	    	<h1> Nom du projet : Service REST & Client </h1>
+	        <h2> Version du projet : v1.0.0</h2>
+	         <h2> Toutes les URL de l'API resumés dans le tableau suivant </h2>
+	</div>
+	<div class="text-center">
+		<table>
+		
+		  <tr>
+		    <th>URL</th>
+		    <th>Méthode</th>
+		    <th>Résumé</th>
+		  </tr>
+		  <tr>
+		   <td>/</td> 
+		   <td>GET</td>
+		   <td>Affiche la page d’accueil</td>
+		  </tr>
+		  
+		  <tr>
+		   <td>/help</td> 
+		   <td>GET</td>
+		   <td>Affiche la page contenant les informations d’aide</td>
+		  </tr>
+		  
+		  <tr>
+		   <td>/rss22/resume/xml</td> 
+		   <td>GET</td>
+		   <td>Affiche la liste des articles stockés Retour Flux XML</td>
+		  </tr>
+		  
+		  <tr>
+		   <td>/rss22/resume/html</td> 
+		   <td>GET</td>
+		   <td>Affiche la liste des articles stockés Retour Page HTML (ou XHTML)</td>
+		  </tr>
+		  <tr>
+		  
+		   <td>/rss22/rss22/resume/xml/{guid}</td> 
+		   <td>GET</td>
+		   <td>Affiche le contenu complet de l’article dont l’identifiant est {guid}(XML)</td>
+		  </tr>
+		  
+		  <tr>
+		   <td>/rss22/html/{guid}</td> 
+		   <td>GET</td>
+		   <td>Affiche le contenu complet de l’article dont l’identifiant est {guid} (HTML ou XHTML)</td>
+		  </tr>
+		  <tr>
+		  
+		   <tr>
+		   <td>/rss22/insert</td> 
+		   <td>POST</td>
+		   <td>inserer un Flux XML décrivant le flux rss22  conforme au schéma xsd</td>
+		  </tr>
+		  
+		   <tr>
+		   <td>/rss22/delete/{guid}</td> 
+		   <td>DELETE</td>
+		   <td>Suppression de l’article dont l’identifiant est {guid}</td>
+		  </tr>
+		  
+		  
+		</table>
+	</div>
+
+</body>
+</html>
+

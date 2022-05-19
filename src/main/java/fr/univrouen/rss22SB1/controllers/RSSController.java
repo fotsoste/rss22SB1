@@ -18,6 +18,12 @@ public class RSSController {
 	}
 	
 	
+	
+
+	
+	
+	
+	
 	@GetMapping("/id")
 	public String getRSSinXML(
 	@RequestParam(value = "guid") String texte) {

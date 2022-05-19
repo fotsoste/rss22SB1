@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cv Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+    <body>
+        <div class="cv-container">
+            <div id="cv-header">
+                <h5 th:text="${date}">Le :  </h5>
+                <h5> CV Server </h5>
+            </div>           
+        </div>
+
+        <div>
+            <h1 th:text="${cv.objectif.emploi}"></h1>
+            <p th:text="${cv.objectif.stage}"></p>
+        </div>
+
+        <div>
+            <h2> 
+                <span th:text="${cv.identite.genre}"></span>
+                <span th:text="${cv.identite.nom}"></span>
+                <span th:text="${cv.identite.prenom}"></span>
+            </h2>
+            <p>
+                Tel: <span th:text="${cv.identite.tel}"></span><br> 
+                <span>Mel: </span><span th:text="${cv.identite.mel}"></span> 
+            </p>
+        </div>
+
+        <div>
+            <h2>Expérience Professionnelles</h2>
+            <ol class="ex">
+                <th:block th:each="ex:${cv.prof.expe}">
+                    <li th:text="${ex.titre + ' (du ' + ex.datedeb + ' au ' + ex.datefin + ')'}"></li>
+                </th:block>
+            </ol>
+        </div>
+
+        <div>
+            <h2>Diplômes</h2>
+            <table>
+                <th:block th:each="d:${cv.competences.diplome}">
+                    <tr>
+                        <td th:text="${d.date}"></td>
+                        <td th:text="${d.titre}"></td>
+                        <td th:text="${d.niveau}"></td>
+                        <td th:text="${d.etab}"></td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+
+        <div>
+            <h2>Certifications</h2>
+            <table>
+                <th:block th:each="cert:${cv.competences.certif}">
+                    <tr>
+                        <td th:text="${cert.datedeb + ' - ' + cert.datefin}"></td>
+                        <td th:text="${cert.titre}"></td>
+                    </tr>
+                </th:block>
+            </table>
+        </div>
+
+        <div>
+            <h2>Langues</h2>
+            <ul>
+                <th:block th:each="lng:${cv.divers.lv}">
+                    <li th:text="${lng.lang + ' ' + lng.nivi + ' (' + lng.nivs + ')'}"></li>
+                </th:block>
+            </ul>
+        </div>
+            <div>
+            <h2>Divers</h2>
+            <ul>
+                <th:block th:each="au:${cv.divers.autre}">
+                    <li th:text="${au.commentaire + ' : ' + au.titre }"></li>
+                </th:block>
+            </ul>
+        </div>  
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Article Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+    <body>
+      <div class="feed-container">
+        <div id="feed-header">
+            <h5 th:text="${'Le : ' + date}"></h5>
+            <h5> Article Server </h5>
+        </div>
+
+        <div>
+          <h1>title</h1>
+          <p th:text="${feed.title}"></p>
+        </div>
+
+	<div>
+          <h1>pubDate</h1>
+          <p th:text="${feed.pubDate}"></p>
+        </div>
+	
+	<div>
+          <h1>copyright</h1>
+          <p th:text="${feed.copyright}"></p>
+        </div>
+
+	<div>
+          <h1>links</h1>
+          <table>
+              <th:block th:each="l:${feed.links}">
+                  <tr>
+                      <td th:text=${l.href}"></td>
+                      <td th:text="${l.rel}"></td>
+                      <td th:text="${l.type}"></td>
+                      
+                  </tr>
+              </th:block>
+          </table>
+        </div>
+
+	<div>
+          <h1>items</h1>
+          <table>
+              <th:block th:each="it:${feed.items}">
+                  <tr>
+                      <td th:text="${'guid: ' + it.guid}"></td>
+                      <td th:text="${'title: ' + it.title}"></td>
+                      <td th:text="${'category: ' + it.category}"></td>
+		      <td th:text="${'published: ' + it.published}"></td>
+			<td th:text="${'content: ' + it.content}"></td>
+			<td th:each="auth:${it.authors}">
+			<tr>
+				<h2>authors| contributors</h2>
+				<td th:text="${'name: ' + auth.name}"></td>
+			      <td th:text="${'email: ' + auth.email}"></td>
+			      <td th:text="${'uri: ' + auth.uri}"></td>		
+			</tr>
+			</td>
+                  </tr>
+              </th:block>
+          </table>
+        </div>
+	
+    </body>
+</html>
